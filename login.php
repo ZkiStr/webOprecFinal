@@ -84,6 +84,7 @@ if(isset($_POST['btn-daftar'])){
 // cek konfirmasi password
   if($_POST['password'] == $_POST['konfirmasi_password']){
     //cek apakah email sudah pernah digunakan
+    $nama = mysqli_real_escape_string($conn,$_POST['nama']);
     $email = mysqli_real_escape_string($conn,$_POST['email']);
     $password = mysqli_real_escape_string($conn,$_POST['password']);
     $lihat1 = mysqli_query($conn,"select * from user where useremail='$email'");
@@ -91,7 +92,7 @@ if(isset($_POST['btn-daftar'])){
     $password = password_hash($password, PASSWORD_DEFAULT);
       if($lihat2 < 1){
     //email belum pernah digunakan
-        $insert = mysqli_query($conn,"insert into user (useremail,userpassword) values ('$email','$password')");
+        $insert = mysqli_query($conn,"insert into user (nama,useremail,userpassword) values ('$nama','$email','$password')");
         //eksekusi query
           if($insert){
               echo "<div class='alert alert-success' role='alert'> Registrasi Berhasil, silahkan login.</div>
@@ -116,7 +117,7 @@ if(isset($_POST['btn-daftar'])){
             <h2 class="title">Daftar</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" name="username" placeholder="Nama Lengkap" autofocus required/>
+              <input type="text" name="nama" placeholder="Nama Lengkap" autofocus required/>
               <p class="help-block text-danger"></p>
             </div>
             <div class="input-field">

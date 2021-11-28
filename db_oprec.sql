@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Nov 2021 pada 02.39
+-- Waktu pembuatan: 28 Nov 2021 pada 15.45
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.7
 
@@ -30,15 +30,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin` (
   `adminid` int(11) NOT NULL,
   `adminemail` varchar(50) NOT NULL,
-  `adminpassword` varchar(50) NOT NULL
+  `adminpassword` varchar(50) NOT NULL,
+  `nama_admin` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `admin`
 --
 
-INSERT INTO `admin` (`adminid`, `adminemail`, `adminpassword`) VALUES
-(2, 'admin@admin.id', 'admin');
+INSERT INTO `admin` (`adminid`, `adminemail`, `adminpassword`, `nama_admin`) VALUES
+(2, 'admin@admin.id', 'admin', 'zki');
 
 -- --------------------------------------------------------
 
@@ -61,6 +62,7 @@ CREATE TABLE `save_contact` (
 
 CREATE TABLE `user` (
   `userid` int(11) NOT NULL,
+  `nama` varchar(225) NOT NULL,
   `useremail` varchar(50) NOT NULL,
   `userpassword` varchar(255) NOT NULL,
   `tgldaftar` timestamp NOT NULL DEFAULT current_timestamp()
@@ -70,9 +72,10 @@ CREATE TABLE `user` (
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`userid`, `useremail`, `userpassword`, `tgldaftar`) VALUES
-(2, 'zaki@peserta.id', '$2y$10$8SzJJC/wLqvGt64fkGxlA.mlumaitYHmp9z/91eZCcWi9G2.d9xhq', '2021-08-05 14:41:48'),
-(7, 'nana@sch.ac.id', '$2y$10$Xx7lYf33Q9QrgovgjpnwCOKmZbQZHPGJnscVhJ3BnvudN4gFXvrCu', '2021-11-25 06:04:37');
+INSERT INTO `user` (`userid`, `nama`, `useremail`, `userpassword`, `tgldaftar`) VALUES
+(19, 'didi', 'didi@id', '$2y$10$IdGClWclKYGtccVQYmS.S.ilRWBPf1D62zxD6vCOpmWANVhJQOl9S', '2021-11-28 10:43:32'),
+(20, 'Zaki Satria Prayoga', 'zaki@peserta.id', '$2y$10$5RxDOcxGbrKADhOS/LGlHukkaRO5Ox3xDymH7JDkC.dFR3lsOTJf2', '2021-11-28 10:44:54'),
+(21, 'dipe', 'dipo@id', '$2y$10$QAuXUKp1KWq.WiTNti0SM.XFmGkmIes10FevD8KGUw0H6fpnNWRGm', '2021-11-28 10:46:10');
 
 -- --------------------------------------------------------
 
@@ -146,7 +149,7 @@ ALTER TABLE `save_contact`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT untuk tabel `userdata`

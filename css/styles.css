@@ -4831,6 +4831,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert {
+  color: #fff;
   position: relative;
   padding: 0.75rem 1.25rem;
   margin-bottom: 1rem;
@@ -4883,7 +4884,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .alert-success {
-  color: #155724;
+  color: #fff;
   background-color: #d4edda;
   border-color: #c3e6cb;
 }
